@@ -8,7 +8,7 @@ class Student
   @@all_students = []
   @@current_id = 0
 
-  def initialize(data)
+  def initialize(data=nil)
     data.each do |key, value|
       self.send("#{key}=",value)
     end unless data.nil?
