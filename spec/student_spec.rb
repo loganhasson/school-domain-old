@@ -20,8 +20,8 @@ describe "Student" do
       student.twitter.should eq("paulissupercool")
       student.linkedin = "paulhateslinkedin"
       student.linkedin.should eq("paulhateslinkedin")
-      student.facebook = "whoisthisguypaulanyway"
-      student.facebook.should eq("whoisthisguypaulanyway")
+      student.github = "whoisthisguypaulanyway"
+      student.github.should eq("whoisthisguypaulanyway")
     end
 
     it "has a website" do

@@ -1,7 +1,7 @@
 class Student
 
   attr_accessor :name, :twitter, :linkedin,
-                :facebook, :website
+                :github, :website
 
   attr_reader :id
 
