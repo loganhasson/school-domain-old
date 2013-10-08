@@ -87,10 +87,23 @@ class CLIStudent
     @on = false
   end
 
+  def make_array(student)
+    if student.is_a?(Array)
+      return student
+    else
+      [student]
+    end
+  end
+
   def display(student)
     system('clear')
-    if student.is_a?(Array)
-      student.each do |student|
+    if make_array(student).size == 0
+      puts "Sorry, I can't find that student. Please try again."
+      puts "Loading students..."
+      sleep(1.5)
+      self.browse
+    else
+      make_array(student).each do |student|
         puts "Viewing Student"
         puts "---------------"
         puts ""
@@ -101,16 +114,6 @@ class CLIStudent
         puts "Website: #{student.website}"
         puts ""
       end
-    else
-      puts "Viewing Student"
-      puts "---------------"
-      puts ""
-      puts "Name: #{student.name}"
-      puts "Twitter: #{student.twitter}"
-      puts "Linkedin: #{student.linkedin}"
-      puts "Githhub: #{student.github}"
-      puts "Website: #{student.website}"
-      puts ""
     end
     print "Enter a command: "
   end
