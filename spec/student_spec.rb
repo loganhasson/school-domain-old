@@ -4,11 +4,11 @@ require_relative '../lib/student'
 describe "Student" do
 
   it "can be instantiated" do
-    Student.new.should be_an_instance_of(Student)
+    Student.new([]).should be_an_instance_of(Student)
   end
 
   describe "student properties" do
-    let(:student) { Student.new }
+    let(:student) { Student.new([]) }
 
     it "has a name" do
       student.name = "Paul"
@@ -36,7 +36,7 @@ describe "Student" do
       Student.reset_all
 
       ('a'..'c').each do |l|
-        s = Student.new
+        s = Student.new([])
         s.name = l
       end
 
@@ -50,7 +50,7 @@ describe "Student" do
 
     it "resets the set of created students" do
       10.times do
-        Student.new
+        Student.new([])
       end
 
       Student.reset_all
@@ -61,8 +61,8 @@ describe "Student" do
 
   describe "::find_by_name" do
 
-    let(:scott) { Student.new }
-    let(:avi) { Student.new }
+    let(:scott) { Student.new([]) }
+    let(:avi) { Student.new([]) }
 
     it "can find a student by name" do
       scott.name = "Scott"
@@ -77,7 +77,7 @@ describe "Student" do
   #BONUS ROUND! Implement an ID system
   context "with an ID" do
 
-    let(:student) { Student.new }
+    let(:student) { Student.new([]) }
 
     before(:each) do
       Student.reset_all
@@ -95,14 +95,14 @@ describe "Student" do
       student.name = "Becky"
       student.id.should eq(1)
 
-      s2 = Student.new
+      s2 = Student.new([])
       s2.id.should eq(2)
     end
 
     it "can find a student by ID" do
       student.name = "Steve"
       10.times do
-        Student.new
+        Student.new([])
       end
 
       Student.find(student.id).name.should eq("Steve")
@@ -114,7 +114,7 @@ describe "Student" do
       it "can be deleted" do
         student.name = "Steve"
         5.times do
-          Student.new.tap { |s| s.name = "Clara" }
+          Student.new([]).tap { |s| s.name = "Clara" }
         end
 
         Student.delete(student.id)

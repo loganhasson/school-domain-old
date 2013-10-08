@@ -15,11 +15,6 @@ class Student
 
     @@all_students << self
     @id = Student.get_next_id
-    @name = data[:name]
-    @twitter = data[:twitter]
-    @linkedin = data[:linkedin]
-    @github = data[:github]
-    @website = data[:website]
   end
 
   def self.get_next_id
