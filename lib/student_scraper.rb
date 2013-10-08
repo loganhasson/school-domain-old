@@ -1,7 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
 require 'pry'
-require_relative './student.rb'
+require_relative './student'
 
 class StudentScraper
 
@@ -62,10 +62,3 @@ class StudentScraper
   end
 
 end
-
-main_index_url = "http://students.flatironschool.com"
-student_scrape = StudentScraper.new(main_index_url)
-student_hashes = student_scrape.call
-Student.import(student_hashes)
-
-binding.pry

@@ -1,5 +1,5 @@
 require_relative 'spec_helper'
-require_relative '../lib/student.rb'
+require_relative '../lib/student'
 
 describe "Student" do
 

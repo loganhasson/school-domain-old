@@ -25,6 +25,10 @@ class Student
   def self.get_next_id
     @@current_id += 1
   end
+  
+  def self.get_id
+    @@current_id
+  end
 
   def self.all
     @@all_students
@@ -40,7 +44,7 @@ class Student
   end
 
   def self.find_by_name(search_name)
-    @@all_students.select { |s| s.name.downcase.strip == search_name.downcase.strip }
+    @@all_students.select { |s| s.name.downcase.strip.include?(search_name.downcase.strip) }
   end
 
   def self.find(id)
