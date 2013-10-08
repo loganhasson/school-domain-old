@@ -8,9 +8,18 @@ class Student
   @@all_students = []
   @@current_id = 0
 
-  def initialize
+  def initialize(data)
+    data.each do |key, value|
+      self.send("#{key}=",value)
+    end unless data.nil?
+
     @@all_students << self
     @id = Student.get_next_id
+    @name = data[:name]
+    @twitter = data[:twitter]
+    @linkedin = data[:linkedin]
+    @github = data[:github]
+    @website = data[:website]
   end
 
   def self.get_next_id
@@ -36,6 +45,12 @@ class Student
 
   def self.find(id)
     @@all_students.find { |s| s.id == id }
+  end
+
+  def self.import(hash)
+    hash.each do |student|
+      Student.new(student)
+    end
   end
 
 end
