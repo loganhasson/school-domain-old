@@ -135,9 +135,9 @@ class CLIStudent
 
 end
 
-main_index_url = "http://students.flatironschool.com"
-student_scrape = StudentScraper.new(main_index_url)
-student_hashes = student_scrape.call
-Student.import(student_hashes)
-command_line = CLIStudent.new(Student.all)
-command_line.call
+# main_index_url = "http://students.flatironschool.com"
+# student_scrape = StudentScraper.new(main_index_url)
+# student_hashes = student_scrape.call
+# Student.import(student_hashes)
+# command_line = CLIStudent.new(Student.all)
+# command_line.call

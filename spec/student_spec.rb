@@ -74,6 +74,32 @@ describe "Student" do
 
   end
 
+  describe "::import" do
+
+    let(:student_hash) do
+                          [
+                            {:name => "Logan",
+                            :twitter => "http://twitter.com/loganhasson",
+                            :linkedin => "http://linkedin.com/loganhasson",
+                            :github => "http://github.com/loganhasson",
+                            :website => "http://loganhasson.github.io"}
+                          ]
+                       end
+
+
+    it "should create a new student instance with appropriate attributes" do
+      Student.reset_all
+      Student.import(student_hash)
+      student = Student.all.first
+      student.name.should eq("Logan")
+      student.twitter.should eq("http://twitter.com/loganhasson")
+      student.linkedin.should eq("http://linkedin.com/loganhasson")
+      student.github.should eq("http://github.com/loganhasson")
+      student.website.should eq("http://loganhasson.github.io")
+    end
+
+  end
+
   #BONUS ROUND! Implement an ID system
   context "with an ID" do
 
